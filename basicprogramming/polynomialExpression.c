@@ -13,3 +13,5 @@ int main(void) {
     return 0; 
  
 } 
+
+// 3x2+7x+11
