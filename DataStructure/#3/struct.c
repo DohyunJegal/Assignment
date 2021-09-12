@@ -4,35 +4,35 @@ struct student1{
     char lastName;
     int studentId;
     char grade;
-}; // typedef¸¦ »ç¿ëÇÏÁö ¾ÊÀº ±¸Á¶Ã¼
+}; // typedefë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì€ êµ¬ì¡°ì²´
 
 typedef struct{
     char lastName;
     int studentId;
     char grade;
-} student2; // typedef¸¦ »ç¿ëÇÑ ±¸Á¶Ã¼
+} student2; // typedefë¥¼ ì‚¬ìš©í•œ êµ¬ì¡°ì²´
 
 void main(){
     printf("[----- [Jegal Dohyun] [2018038018] -----] \n\n");
 
-    struct student1 st1 = {'A', 100, 'A'}; // typedef¸¦ »ç¿ëÇÏÁö ¾Ê¾Ò±â ¶§¹®¿¡ struct¸¦ ²À ¸í½ÃÇØÁà¾ß ÇÑ´Ù.
+    struct student1 st1 = {'A', 100, 'A'}; // typedefë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šì•˜ê¸° ë•Œë¬¸ì— structë¥¼ ê¼­ ëª…ì‹œí•´ì¤˜ì•¼ í•œë‹¤.
 
     printf("st1.lastName = %c\n", st1.lastName);
     printf("st1.studentId = %d\n", st1.studentId);
     printf("st1.grade = %c\n", st1.grade);
 
-    student2 st2 = {'B', 200, 'B'}; // typedef¸¦ »ç¿ëÇß±â ¶§¹®¿¡ struct¸¦ ÀûÁö ¾Ê¾Æµµ °¡´ÉÇÏ´Ù.
+    student2 st2 = {'B', 200, 'B'}; // typedefë¥¼ ì‚¬ìš©í–ˆê¸° ë•Œë¬¸ì— structë¥¼ ì ì§€ ì•Šì•„ë„ ê°€ëŠ¥í•˜ë‹¤.
 
     printf("\nst2.lastName = %c\n", st2.lastName);
     printf("st2.studentId = %d\n", st2.studentId);
     printf("st2.grade = %c\n", st2.grade);
 
     student2 st3;
-    st3 = st2; // ±¸Á¶Ã¼ÀÇ ±¸Á¶ Ä¡È¯
+    st3 = st2; // êµ¬ì¡°ì²´ì˜ êµ¬ì¡° ì¹˜í™˜
 
     printf("\nst3.lastName = %c\n", st3.lastName);
     printf("st3.studentId = %d\n", st3.studentId);
-    printf("st3.grade = %c\n", st3.grade); // ±¸Á¶ Ä¡È¯ÀÌ ÀÌ·ç¾îÁ® st2ÀÇ °ªÀÌ st3À¸·Î Ä¡È¯µÇ¾ú´ÂÁö È®ÀÎ
+    printf("st3.grade = %c\n", st3.grade); // êµ¬ì¡° ì¹˜í™˜ì´ ì´ë£¨ì–´ì ¸ st2ì˜ ê°’ì´ st3ìœ¼ë¡œ ì¹˜í™˜ë˜ì—ˆëŠ”ì§€ í™•ì¸
 
     /*
     if(st3==st2)
@@ -40,7 +40,7 @@ void main(){
     else
         printf("not equal\n");
 
-    ÀüÃ¼ ±¸Á¶ÀÇ µ¿µî¼ºÀ» °Ë»çÇÏ¿© st3°ú st2°¡ °°À¸¸é equalÀ» Ãâ·Â, ´Ù¸£¸é not equalÀ» Ãâ·ÂÇÏ´Â ºÎºĞ
-    ÇÏÁö¸¸ GCC¿¡¼­´Â Á÷Á¢ ºñ±³¸¦ Çã¿ëÇÏÁö ¾Ê¾Æ »ç¿ëÀÌ ºÒ°¡´ÉÇÏ´Ù.
+    ì „ì²´ êµ¬ì¡°ì˜ ë™ë“±ì„±ì„ ê²€ì‚¬í•˜ì—¬ st3ê³¼ st2ê°€ ê°™ìœ¼ë©´ equalì„ ì¶œë ¥, ë‹¤ë¥´ë©´ not equalì„ ì¶œë ¥í•˜ëŠ” ë¶€ë¶„
+    í•˜ì§€ë§Œ GCCì—ì„œëŠ” ì§ì ‘ ë¹„êµë¥¼ í—ˆìš©í•˜ì§€ ì•Šì•„ ì‚¬ìš©ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
     */
 }
