@@ -12,22 +12,22 @@ int transpose_matrix(int** matrix, int** matrix_t, int row, int col);
 int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col);
 
 int main(){
-    char command; // ¸Þ´º ÀÔ·Â°ª 
+    char command; // ë©”ë‰´ ìž…ë ¥ê°’ 
     printf("[----- [Jegal Dohyun]  [2018038018] -----]\n");
 
     int row, col;
-    srand(time(NULL)); // Áßº¹ÀÌ ¾ø´Â ³­¼ö »ý¼º 
+    srand(time(NULL)); // ì¤‘ë³µì´ ì—†ëŠ” ë‚œìˆ˜ ìƒì„± 
 
     printf("Input row and col : ");
     scanf("%d %d", &row, &col);
     
     int** matrix_a = create_matrix(row, col); 
     int** matrix_b = create_matrix(row, col);
-    int** matrix_a_t = create_matrix(col, row); // 2Â÷¿ø ¹è¿­ a, b, a_t »ý¼º 
+    int** matrix_a_t = create_matrix(col, row); // 2ì°¨ì› ë°°ì—´ a, b, a_t ìƒì„± 
 
     printf("Matrix Created.\n");
 
-    if (matrix_a == NULL || matrix_b == NULL) // ¹è¿­ °ªÀÇ ¿À·ù¸¦ Ã£´Â ÀüÃ³¸® °Ë»ç 
+    if (matrix_a == NULL || matrix_b == NULL) // ë°°ì—´ ê°’ì˜ ì˜¤ë¥˜ë¥¼ ì°¾ëŠ” ì „ì²˜ë¦¬ ê²€ì‚¬ 
 		return -1;
 
     do{
@@ -46,7 +46,7 @@ int main(){
         	case 'z': case 'Z':
             	printf("Matrix Initialized\n");
            		fill_data(matrix_a, row, col);
-            	fill_data(matrix_b, row, col); // ¹è¿­ a,bÀÇ °ªÀ» ³­¼ö·Î ÇÒ´ç 
+            	fill_data(matrix_b, row, col); // ë°°ì—´ a,bì˜ ê°’ì„ ë‚œìˆ˜ë¡œ í• ë‹¹ 
             	break;
             	
         	case 'p': case 'P':
@@ -54,44 +54,44 @@ int main(){
             	printf("matrix_a\n");
             	print_matrix(matrix_a, row, col);
             	printf("matrix_b\n");
-            	print_matrix(matrix_b, row, col); // ¹è¿­ a,bÀÇ °ªÀ» Ãâ·Â 
+            	print_matrix(matrix_b, row, col); // ë°°ì—´ a,bì˜ ê°’ì„ ì¶œë ¥ 
             	break;
             	
         	case 'a': case 'A':
         	    printf("Add two matrices\n");
-            	addition_matrix(matrix_a, matrix_b, row, col); // µÎ ¹è¿­ÀÇ ÇÕÀ» Ãâ·Â 
+            	addition_matrix(matrix_a, matrix_b, row, col); // ë‘ ë°°ì—´ì˜ í•©ì„ ì¶œë ¥ 
             	break;
             	
         	case 's': case 'S':
            		printf("Subtract two matrices \n");
-            	subtraction_matrix(matrix_a, matrix_b, row, col); // µÎ ¹è¿­ÀÇ Â÷¸¦ Ãâ·Â 
+            	subtraction_matrix(matrix_a, matrix_b, row, col); // ë‘ ë°°ì—´ì˜ ì°¨ë¥¼ ì¶œë ¥ 
             	break;
             	
         	case 't': case 'T':
             	printf("Transpose matrix_a \n");
             	printf("matrix_a_t\n");
-            	transpose_matrix(matrix_a, matrix_a_t, col, row); // ¹è¿­ aÀÇ ÀüÄ¡Çà·Ä a_t¸¦ °è»ê 
+            	transpose_matrix(matrix_a, matrix_a_t, col, row); // ë°°ì—´ aì˜ ì „ì¹˜í–‰ë ¬ a_të¥¼ ê³„ì‚° 
             	print_matrix(matrix_a_t, col, row);
             	break;
             	
         	case 'm': case 'M':
             	printf("Multiply matrix_a with transposed matrix_a \n");
             	transpose_matrix(matrix_a, matrix_a_t, col, row);
-            	multiply_matrix(matrix_a, matrix_a_t, row, col); // ¹è¿­ a¿Í a_tÀÇ °öÀ» Ãâ·Â 
+            	multiply_matrix(matrix_a, matrix_a_t, row, col); // ë°°ì—´ aì™€ a_tì˜ ê³±ì„ ì¶œë ¥ 
             	break;
             	
         	case 'q': case 'Q':
             	printf("Free all matrices..\n");
             	free_matrix(matrix_a_t, col, row);
             	free_matrix(matrix_a, row, col);
-            	free_matrix(matrix_b, row, col); // free¸¦ ÅëÇØ ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦ 
+            	free_matrix(matrix_b, row, col); // freeë¥¼ í†µí•´ ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ 
             	break;
             	
         	default:
-            	printf("\n       >>>>>   Concentration!!   <<<<<     \n"); // ÀÌ¿ÜÀÇ °ªÀÌ ³ª¿À¸é ¿À·ù¸Þ¼¼Áö Ãâ·Â 
+            	printf("\n       >>>>>   Concentration!!   <<<<<     \n"); // ì´ì™¸ì˜ ê°’ì´ ë‚˜ì˜¤ë©´ ì˜¤ë¥˜ë©”ì„¸ì§€ ì¶œë ¥ 
             	break;
         }
-    } while(command != 'q' && command != 'Q'); // Á¾·á ¸Þ´º ÀÔ·Â Àü ±îÁö ¹Ýº¹ 
+    } while(command != 'q' && command != 'Q'); // ì¢…ë£Œ ë©”ë‰´ ìž…ë ¥ ì „ ê¹Œì§€ ë°˜ë³µ 
     
     return 1;
 }
@@ -100,16 +100,16 @@ int** create_matrix(int row, int col){
 	int **x, i;
 	
 	if(row <= 0 || col <=0) {
-		printf("Check the sizes of row and col!\n");  // ¹è¿­ °ªÀÇ ¿À·ù¸¦ Ã£´Â ÀüÃ³¸® °Ë»ç 
+		printf("Check the sizes of row and col!\n");  // ë°°ì—´ ê°’ì˜ ì˜¤ë¥˜ë¥¼ ì°¾ëŠ” ì „ì²˜ë¦¬ ê²€ì‚¬ 
 		return NULL;
 	}
 	
-	x = (int **)malloc(sizeof(int*)*row); // malloc() ÇÔ¼ö¸¦ ÅëÇØ ÁÖ¼Ò¸¦ ´ã´Â intÇü ¹è¿­À» row ¸¸Å­ »ý¼º  
+	x = (int **)malloc(sizeof(int*)*row); // malloc() í•¨ìˆ˜ë¥¼ í†µí•´ ì£¼ì†Œë¥¼ ë‹´ëŠ” intí˜• ë°°ì—´ì„ row ë§Œí¼ ìƒì„±  
 	for(i=0; i<row; i++)
-		x[i] = (int *)malloc(sizeof(int)*col); // malloc() ÇÔ¼ö¸¦ ÅëÇØ »ý¼ºÇÑ ¹è¿­ x¿¡ °ªÀ» ´ã´Â intÇü ¹è¿­À» col ¸¸Å­ »ý¼º 
+		x[i] = (int *)malloc(sizeof(int)*col); // malloc() í•¨ìˆ˜ë¥¼ í†µí•´ ìƒì„±í•œ ë°°ì—´ xì— ê°’ì„ ë‹´ëŠ” intí˜• ë°°ì—´ì„ col ë§Œí¼ ìƒì„± 
 	
 	if(x == NULL) {
-		printf("Check the sizes of row and col!\n"); // ¹è¿­ °ªÀÇ ¿À·ù¸¦ Ã£´Â ÈÄÃ³¸® °Ë»ç 
+		printf("Check the sizes of row and col!\n"); // ë°°ì—´ ê°’ì˜ ì˜¤ë¥˜ë¥¼ ì°¾ëŠ” í›„ì²˜ë¦¬ ê²€ì‚¬ 
 		return NULL;
 	}
 	
@@ -121,7 +121,7 @@ void print_matrix(int** matrix, int row, int col){
 	
 	for(i=0; i<row; i++){
 		for(j=0; j<col; j++)
-			printf("%d\t",matrix[i][j]); // ÀÌÁß for¹®À» ÅëÇØ ¹è¿­ÀÇ Çà°ú ¿­À» Áõ°¡½ÃÄÑ °ªÀ» Ãâ·Â 
+			printf("%d\t",matrix[i][j]); // ì´ì¤‘ forë¬¸ì„ í†µí•´ ë°°ì—´ì˜ í–‰ê³¼ ì—´ì„ ì¦ê°€ì‹œì¼œ ê°’ì„ ì¶œë ¥ 
 	printf("\n");
 	}
 }
@@ -136,9 +136,9 @@ int free_matrix(int** matrix, int row, int col){
 	}
 	
 	for(i=0; i<row; i++){
-        free(matrix[i]); // free()ÇÔ¼ö¸¦ ÅëÇØ °ªÀ» ´ã´Â intÇü ¹è¿­À» ÇÒ´ç ÇØÁ¦ 
+        free(matrix[i]); // free()í•¨ìˆ˜ë¥¼ í†µí•´ ê°’ì„ ë‹´ëŠ” intí˜• ë°°ì—´ì„ í• ë‹¹ í•´ì œ 
     }
-    free(matrix); // ÀÌÈÄ ÁÖ¼Ò¸¦ ´ã´Â intÇü ¹è¿­À» ÇÒ´ç ÇØÁ¦ 
+    free(matrix); // ì´í›„ ì£¼ì†Œë¥¼ ë‹´ëŠ” intí˜• ë°°ì—´ì„ í• ë‹¹ í•´ì œ 
     
     if(matrix == NULL) {
 		printf("Check the sizes of row and col!\n");
@@ -158,7 +158,7 @@ int fill_data(int** matrix, int row, int col){
 	
 	for(i=0; i<row; i++){
 		for(j=0; j<col; j++) 
-			matrix[i][j] = rand()%20; // ¹è¿­¿¡ 0~19ÀÇ ³­¼ö°ªÀ» ´ëÀÔ 
+			matrix[i][j] = rand()%20; // ë°°ì—´ì— 0~19ì˜ ë‚œìˆ˜ê°’ì„ ëŒ€ìž… 
 	}
 	
 	if(matrix == NULL) {
@@ -170,7 +170,7 @@ int fill_data(int** matrix, int row, int col){
 }
 
 int addition_matrix(int** matrix_a, int** matrix_b, int row, int col){
-	int **matrix_sum = create_matrix(row, col); // ¹è¿­ÀÇ ÇÕÀ» ÀúÀåÇÏ±â À§ÇÑ ¹è¿­ »ý¼º 
+	int **matrix_sum = create_matrix(row, col); // ë°°ì—´ì˜ í•©ì„ ì €ìž¥í•˜ê¸° ìœ„í•œ ë°°ì—´ ìƒì„± 
 	int i,j;
 	
 	if(row <= 0 || col <=0) {
@@ -180,7 +180,7 @@ int addition_matrix(int** matrix_a, int** matrix_b, int row, int col){
 	
 	for(i=0; i<row; i++){
 		for(j=0; j<col; j++) 
-			matrix_sum[i][j] = matrix_a[i][j] + matrix_b[i][j]; // ¹è¿­ a, bÀÇ ÇÕÀ» ¹è¿­ sum¿¡ ÀúÀå 
+			matrix_sum[i][j] = matrix_a[i][j] + matrix_b[i][j]; // ë°°ì—´ a, bì˜ í•©ì„ ë°°ì—´ sumì— ì €ìž¥ 
 	}
 	print_matrix(matrix_sum, row, col);
 	
@@ -189,13 +189,13 @@ int addition_matrix(int** matrix_a, int** matrix_b, int row, int col){
 		return NULL;
 	}
 	
-	free_matrix(matrix_sum, row, col); // ¸Þ¸ð¸® ´©¼ö ¹æÁö¸¦ À§ÇØ ÇÒ´ç ÇØÁ¦ 
+	free_matrix(matrix_sum, row, col); // ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ ë°©ì§€ë¥¼ ìœ„í•´ í• ë‹¹ í•´ì œ 
 	
 	return 1;
 }
 
 int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col){
-	int **matrix_sub = create_matrix(row, col); // ¹è¿­ÀÇ Â÷¸¦ ÀúÀåÇÏ±â À§ÇÑ ¹è¿­ »ý¼º
+	int **matrix_sub = create_matrix(row, col); // ë°°ì—´ì˜ ì°¨ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë°°ì—´ ìƒì„±
 	int i,j;
 	
 	if(row <= 0 || col <=0) {
@@ -205,7 +205,7 @@ int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col){
 	
 	for(i=0; i<row; i++){
 		for(j=0; j<col; j++) 
-			matrix_sub[i][j] = matrix_a[i][j] - matrix_b[i][j]; // ¹è¿­ a, bÀÇ Â÷¸¦ ¹è¿­ sub¿¡ ÀúÀå 
+			matrix_sub[i][j] = matrix_a[i][j] - matrix_b[i][j]; // ë°°ì—´ a, bì˜ ì°¨ë¥¼ ë°°ì—´ subì— ì €ìž¥ 
 	}
 	print_matrix(matrix_sub, row, col);
 	
@@ -228,8 +228,8 @@ int transpose_matrix(int** matrix, int** matrix_t, int col, int row){
 	}
 	
 	for(i=0; i<col; i++){ 
-		for(j=0; j<row; j++)  // ¹è¿­ aÀÇ ÀüÄ¡Çà·ÄÀÌ¹Ç·Î ¹è¿­ a_tÀÇ Å©±â´Â col x row°¡ µÈ´Ù. 
-			matrix_t[i][j] = matrix[j][i]; // ÀüÄ¡Çà·ÄÀÇ °ª ´ëÀÔ  
+		for(j=0; j<row; j++)  // ë°°ì—´ aì˜ ì „ì¹˜í–‰ë ¬ì´ë¯€ë¡œ ë°°ì—´ a_tì˜ í¬ê¸°ëŠ” col x rowê°€ ëœë‹¤. 
+			matrix_t[i][j] = matrix[j][i]; // ì „ì¹˜í–‰ë ¬ì˜ ê°’ ëŒ€ìž…  
 	}
 	
 	if(matrix_t == NULL) {
@@ -241,7 +241,7 @@ int transpose_matrix(int** matrix, int** matrix_t, int col, int row){
 }
 
 int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col){
-	int **matrix_axt = create_matrix(row, row); // ¹è¿­ a¿Í a_tÀÇ °öÀ» ÀúÀåÇÏ±â À§ÇÑ ¹è¿­ »ý¼º, ¹è¿­ÀÇ Å©±â´Â (¹è¿­ aÀÇ Çà Å©±â row) x (¹è¿­ a_tÀÇ ¿­ Å©±â row) 
+	int **matrix_axt = create_matrix(row, row); // ë°°ì—´ aì™€ a_tì˜ ê³±ì„ ì €ìž¥í•˜ê¸° ìœ„í•œ ë°°ì—´ ìƒì„±, ë°°ì—´ì˜ í¬ê¸°ëŠ” (ë°°ì—´ aì˜ í–‰ í¬ê¸° row) x (ë°°ì—´ a_tì˜ ì—´ í¬ê¸° row) 
 	int i,j,k, result;
 	
 	if(row <= 0 || col <=0) {
@@ -251,12 +251,12 @@ int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col){
 	
 	for(i=0; i<row; i++){
         for(j=0; j<row; j++){
-        	result = 0; // result¸¦ 0À¸·Î ÃÊ±âÈ­ 
+        	result = 0; // resultë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™” 
         	
-            for(k=0; k<col; k++) // k¸¦ ÅëÇØ ¹è¿­ aÀÇ ¿­°ú ¹è¿­ a_tÀÇ Çà À§Ä¡¸¦ Áõ°¡
-                result += matrix_a[i][k] * matrix_t[k][j]; // °öÀÇ °á°ú¸¦ result¿¡ ÀúÀå 
+            for(k=0; k<col; k++) // kë¥¼ í†µí•´ ë°°ì—´ aì˜ ì—´ê³¼ ë°°ì—´ a_tì˜ í–‰ ìœ„ì¹˜ë¥¼ ì¦ê°€
+                result += matrix_a[i][k] * matrix_t[k][j]; // ê³±ì˜ ê²°ê³¼ë¥¼ resultì— ì €ìž¥ 
                 
-            matrix_axt[i][j] = result; // resultÀÇ °ªÀ» ¹è¿­ atx¿¡ ÀúÀå 
+            matrix_axt[i][j] = result; // resultì˜ ê°’ì„ ë°°ì—´ atxì— ì €ìž¥ 
     	}
 	}
     	
